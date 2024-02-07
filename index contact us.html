@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact us</title>
+    <style>
+      * {
+        text-decoration: none;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        background-color: rgba(62, 48, 139, 0.795);
+        color: #f5f6f7;
+        font-family: Tahoma;
+        font-size: 16px;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        width: 60vw;
+        max-width: 500px;
+        min-width: 300px;
+        margin: 0 auto;
+        padding-bottom: 2em;
+      }
+      fieldset {
+        border: none;
+      }
+      label {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      textarea {
+        margin: 10px 0 0 0;
+        width: 100%;
+        min-height: 2em;
+      }
+      input,
+      textarea {
+        margin: 10px 0 0 0;
+        width: 100%;
+        min-height: 2em;
+      }
+      input,
+      textarea {
+        background-color: rgba(88, 67, 67, 0.226);
+        border: 1px solid #ffffff;
+        color: #ffffff;
+      }
+      .inline {
+        width: unset;
+        margin: 0 0.5em 0 0;
+        vertical-align: middle;
+      }
+
+      button {
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid rgb(203, 221, 203);
+        /*border: 1px solid rgb(61, 106, 255);*/
+        /*font-size: 14px;*/
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+
+        display: block;
+        width: 60%;
+        margin: 1em auto;
+        height: 2em;
+        font-size: 1.1rem;
+        /*background-color: green;*/
+        /*border-color: black;*/
+        min-width: 300px;
+      }
+
+      button:hover {
+        /*background: rgb(61, 106, 255);*/
+        background: green;
+        box-shadow: 0 0 30px 5px rgb(87, 228, 87);
+        /*box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);*/
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+
+      button:hover::before {
+        -webkit-animation: sh02 0.5s 0s linear;
+        -moz-animation: sh02 0.5s 0s linear;
+        animation: sh02 0.5s 0s linear;
+      }
+
+      button::before {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+      }
+
+      @keyframes sh02 {
+        from {
+          opacity: 0;
+          left: 0%;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+          left: 100%;
+        }
+      }
+
+      button:active {
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: box-shadow 0.2s ease-in;
+        -moz-transition: box-shadow 0.2s ease-in;
+        transition: box-shadow 0.2s ease-in;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+    <form method="post" action="https.//www.google.com">
+      <fieldset>
+        <label for="firstname"
+          >First Name
+          <input
+            id="firstname"
+            type="text"
+            name="firstname"
+            placeholder="Enter your First Name"
+            required
+        /></label>
+        <label for="lastname"
+          >Last Name
+          <input
+            id="lastname"
+            type="text"
+            name="lastname"
+            placeholder="Enter your Last Name"
+            required
+        /></label>
+        <label for="Email"
+          >Email
+          <input
+            id="Email"
+            type="email"
+            name="email"
+            placeholder="Enter your Email"
+            required
+        /></label>
+        <label for="Phone"
+          >Phone<input
+            id="Phone"
+            type="number"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+        /></label>
+      </fieldset>
+      <fieldset>
+        <label for="message"
+          >Any comments or suggestions?
+          <textarea
+            id="message"
+            placeholder="Enter your message..."
+            cols="50"
+            rows="6"
+            wrap="hard"
+            required
+          ></textarea>
+        </label>
+        <label for="terms-and-conditions">
+          <input
+            class="inline"
+            id="terms-and-conditions"
+            type="checkbox"
+            name="terms-and-conditions"
+          />
+          I accept the
+          <a href="https://www.google.com">terms and conditions</a>
+        </label>
+        <button type="submit">Submit</button>
+      </fieldset>
+      <div></div>
+    </form>
+    <script>
+      const formulaire = document.querySelector("form");
+      const Firstname = document.getElementById("firstname");
+      const Lastname = document.getElementById("lastname");
+      const Email = document.getElementById("Email");
+      const Phone = document.getElementById("Phone");
+      const Message = document.getElementById("message");
+      //---------------------------------------------
+      let Nom = "";
+      let Prenom = "";
+      let email = "";
+      let numero = "";
+      let msg = "";
+      //---------------------------------------------
+      Firstname.addEventListener("input", (e) => {
+        //console.log(e.target.value);
+        Nom = e.target.value;
+      });
+
+      Lastname.addEventListener("input", (e) => {
+        //console.log(e.target.value);
+        Prenom = e.target.value;
+      });
+
+      Email.addEventListener("input", (e) => {
+        //console.log(e.target.value);
+        email = e.target.value;
+      });
+
+      Phone.addEventListener("input", (e) => {
+        //console.log(e.target.value);
+        numero = e.target.value;
+      });
+
+      Message.addEventListener("input", (e) => {
+        //console.log(e.target.value);
+        msg = e.target.value;
+      });
+      //----------
+      formulaire.addEventListener("submit", (e) => {
+        //console.log("my formulaire");
+        e.preventDefault();
+        const oke = document.querySelector(".inline");
+        //console.log(oke.checked);
+        //----------------------
+
+        if (oke.checked) {
+          document.querySelector("form > div").innerHTML = `
+        <h4>Nom : ${Nom}</h4>
+        <h4>Prenom : ${Prenom}</h4>
+        <h4>Email : ${email}</h4>
+        <h4>Numero : ${numero}</h4>
+        <h4>Message : ${msg}</h4>
+        `;
+        } else {
+          alert("Please accept the conditions");
+        }
+      });
+      //---------------------------------------------
+    </script>
+  </body>
+</html>
